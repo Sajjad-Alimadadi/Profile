@@ -3,8 +3,9 @@
 namespace App\Containers\ProfileSection\SiteContainer\UI\WEB\Requests;
 
 use App\Ship\Parents\Requests\Request as ParentRequest;
+use Exception;
 
-class CreateAdminCatRequest extends ParentRequest
+class CreateAdminBlogAttachRequest extends ParentRequest
 {
     /**
      * Define which Roles and/or Permissions has access to this request.
@@ -31,12 +32,14 @@ class CreateAdminCatRequest extends ParentRequest
 
     /**
      * Get the validation rules that apply to the request.
+     * @throws Exception
      */
     public function rules(): array
     {
         return [
-            '_token' => 'required',
-            'name'   => 'required|string',
+            '_token'  => 'required',
+            'blog_id' => 'required|integer|exists:blogs,id',
+            'path'    => 'required|mimes:jpg,jpeg,png,pdf,zip|max:10240',
         ];
     }
 
@@ -51,8 +54,10 @@ class CreateAdminCatRequest extends ParentRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            '_token' => $this->post('_token'),
-            'name'   => $this->post('name'),
+            '_token'  => $this->post('_token'),
+            'blog_id' => $this->post('blog_id'),
+            'path'    => $this->file('path'),
         ]);
     }
+
 }

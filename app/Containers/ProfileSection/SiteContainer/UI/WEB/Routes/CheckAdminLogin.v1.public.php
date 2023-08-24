@@ -4,5 +4,4 @@ use App\Containers\ProfileSection\SiteContainer\UI\WEB\Controllers\CheckAdminLog
 use Illuminate\Support\Facades\Route;
 
 Route::Post('/admin/login/check', [CheckAdminLoginController::class, 'run']);
-//    ->middleware(['auth:web']);
 

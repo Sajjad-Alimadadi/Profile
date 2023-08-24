@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/admin/assets/css/style.css">
     <script defer="" src="/admin/assets/js/feather.min.js"></script>
     <script defer="" src="/admin/assets/js/font-awesome.min.js"></script>
+
 </head>
 <body class="nav-fixed">
 <nav class="is-rtl topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="snavAccordion">
@@ -53,7 +54,7 @@
                             <div class="col-auto mt-4">
                                 <h1 class="page-header-title">
                                     <div class="page-header-icon"><i class="bx bx-pulse"></i></div>
-                                    دسته بندی
+                                    ضمیمه
                                 </h1>
                             </div>
                         </div>
@@ -72,19 +73,20 @@
                                     <div class="card h-100 border-start-lg border-start-primary">
                                         <div class="card-body">
 
-                                            <form action="/admin/cat/create" method="post">
+                                            <form enctype="multipart/form-data" action="/admin/blog/attach/create" method="post">
                                                 @csrf
                                                 <!-- Equivalent to... -->
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                                                <input type="hidden" name="blog_id" value="{{ request()->route('id')  }}"/>
 
                                                 <div class="row">
-                                                    <div class="mb-3 col-sm-6">
-                                                        <label class="small mb-1" for="title">عنوان دسته بندی</label>
-                                                        <input class="form-control" name="name" type="input"
-                                                               value="{{old('name')}}"/>
-                                                    </div>
-                                                </div>
 
+                                                    <div class="mb-3 col-sm-6">
+                                                        <label class="small mb-1" for="path">ضمیمه / PDF , PNG , JPG , JPEG</label>
+                                                        <input class="form-control" name="path" type="file"/>
+                                                    </div>
+
+                                                </div>
                                                 <button class="btn btn-primary" type="submit">ثبت اطلاعات</button>
                                             </form>
                                             @if (session()->has('result') )
@@ -114,13 +116,13 @@
 
                                     <thead>
                                     <tr>
-                                        <th>نام</th>
+                                        <th>فایل</th>
                                         <th>عملیات</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
-                                        <th>نام</th>
+                                        <th>فایل</th>
                                         <th>عملیات</th>
                                     </tr>
                                     </tfoot>
@@ -128,9 +130,11 @@
                                     @if ($result)
                                         @foreach($result as $item)
                                             <tr>
-                                                <td>{{ $item['name'] }}</td>
-                                                <td><a href="/admin/cat/delete/{{ $item['id'] }}"
-                                                       class="btn btn-sm btn-danger" type="button">حذف</a></td>
+                                                <td>{{ $item['path'] }}</td>
+                                                <td>
+                                                    <a href="/admin/blog/attach/delete/{{ $item['id'] }}"
+                                                       class="btn btn-sm btn-danger" type="button">حذف</a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @endif

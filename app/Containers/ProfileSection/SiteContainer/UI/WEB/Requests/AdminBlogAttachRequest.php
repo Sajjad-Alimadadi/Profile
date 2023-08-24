@@ -2,16 +2,18 @@
 
 namespace App\Containers\ProfileSection\SiteContainer\UI\WEB\Requests;
 
+use App\Containers\LabSection\VisitContainer\Models\Visit;
+use App\Containers\ProfileSection\SiteContainer\Models\Blog;
 use App\Ship\Parents\Requests\Request as ParentRequest;
 
-class CreateAdminCatRequest extends ParentRequest
+class AdminBlogAttachRequest extends ParentRequest
 {
     /**
      * Define which Roles and/or Permissions has access to this request.
      */
     protected array $access = [
 //        'permissions' => '',
-//        'roles' => '',
+//        'roles'       => '',
     ];
 
     /**
@@ -34,9 +36,12 @@ class CreateAdminCatRequest extends ParentRequest
      */
     public function rules(): array
     {
+        $id = $this->route('id');
+        if (Blog::query()->where('id', $id)->first() === null) {
+            exit('');
+        }
         return [
-            '_token' => 'required',
-            'name'   => 'required|string',
+            'id' => 'required|int|exists:blogs,id',
         ];
     }
 
@@ -51,8 +56,7 @@ class CreateAdminCatRequest extends ParentRequest
     protected function prepareForValidation(): void
     {
         $this->merge([
-            '_token' => $this->post('_token'),
-            'name'   => $this->post('name'),
+            'id' => $this->route('id'),
         ]);
     }
 }

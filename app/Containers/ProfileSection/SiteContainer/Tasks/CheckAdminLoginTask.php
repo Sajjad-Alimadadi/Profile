@@ -3,7 +3,6 @@
 namespace App\Containers\ProfileSection\SiteContainer\Tasks;
 
 use App\Containers\ProfileSection\SiteContainer\Data\Repositories\AdminRepository;
-use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Exceptions\NotFoundException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Exception;

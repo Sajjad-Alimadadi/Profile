@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ورود مدیر</title>
+    <title>پنل مدیریت</title>
     <link rel="stylesheet" href="/admin/assets/css/fonts.css">
     <link rel="stylesheet" href="/admin/assets/css/boxicons.css">
     <link rel="stylesheet" href="/admin/assets/css/style.css">
@@ -26,8 +26,8 @@
                     @endif
 
                     @if (session()->has('result') && session('result')== 1 )
-                        <div class="alert alert-success alert-solid mt-3" role="alert"> ورود موفق کد ملی
-                            - {{ Cache::get('admin')['id'] }}</div>
+                        <div class="alert alert-success alert-solid mt-3" role="alert"> ورود موفق
+                            - {{ Cache::get('admin')['user'] }}</div>
 
                         <script type="text/javascript">
                             const myTimeout = setTimeout(greeting, 1000);
@@ -45,8 +45,8 @@
                     <div class="col-lg-4">
 
                         <div class="card shadow-lg border-0 rounded-lg mt-5">
-                            <div class="card-header justify-content-center"><h3 class="fw-light my-2">ورود به حساب
-                                    مدیر</h3></div>
+                            <div class="card-header justify-content-center"><h3 class="fw-light my-2">ورود به پنل
+                                    مدیریت</h3></div>
                             <div class="card-body">
 
                                 <form id="formAuthentication" action="/admin/login/check" method="post">

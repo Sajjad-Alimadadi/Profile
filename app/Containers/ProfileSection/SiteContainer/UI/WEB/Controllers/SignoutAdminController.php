@@ -6,11 +6,13 @@ use App\Ship\Parents\Controllers\WebController;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Cache;
 
-class AdminDashboardController extends WebController
+class SignoutAdminController extends WebController
 {
-    public function run(): View|\Illuminate\Foundation\Application|Factory|Application
+    public function run(): View|Factory|Application
     {
-        return view('profileSection@siteContainer::AdminDashboard');
+        Cache::clear();
+        return View('profileSection@siteContainer::AdminLogin');
     }
 }

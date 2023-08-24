@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/admin/assets/css/style.css">
     <script defer="" src="/admin/assets/js/feather.min.js"></script>
     <script defer="" src="/admin/assets/js/font-awesome.min.js"></script>
+    <link rel="stylesheet" href="/admin/assets/css/easymde.min.css">
+
 </head>
 <body class="nav-fixed">
 <nav class="is-rtl topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="snavAccordion">
@@ -53,7 +55,7 @@
                             <div class="col-auto mt-4">
                                 <h1 class="page-header-title">
                                     <div class="page-header-icon"><i class="bx bx-pulse"></i></div>
-                                    دسته بندی
+                                    پست ها
                                 </h1>
                             </div>
                         </div>
@@ -72,19 +74,48 @@
                                     <div class="card h-100 border-start-lg border-start-primary">
                                         <div class="card-body">
 
-                                            <form action="/admin/cat/create" method="post">
+                                            <form enctype="multipart/form-data" action="/admin/blog/create" method="post">
                                                 @csrf
                                                 <!-- Equivalent to... -->
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 
                                                 <div class="row">
                                                     <div class="mb-3 col-sm-6">
-                                                        <label class="small mb-1" for="title">عنوان دسته بندی</label>
-                                                        <input class="form-control" name="name" type="input"
-                                                               value="{{old('name')}}"/>
+                                                        <div class="mb-3">
+                                                            <label class="small mb-1">دسته بندی</label>
+                                                            <select class="form-select" name="cat_id">
+                                                                <option selected="selected" style="display: none;">نوع دسته بندی را انتخاب نمایید</option>
+                                                                @if ($result['cat'])
+                                                                    @foreach($result['cat'] as $item)
+                                                                        <option value="{{$item['id']}}">{{$item['name']}}</option>
+                                                                    @endforeach
+                                                                @endif
+                                                            </select>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                    <div class="mb-3 col-sm-6">
+                                                        <label class="small mb-1" for="subject">عنوان</label>
+                                                        <input class="form-control" name="subject" type="input"
+                                                               value="{{old('subject')}}"/>
+                                                    </div>
 
+                                                    <div class="mb-3 col-sm-12">
+                                                        <label class="small mb-1" for="text">متن</label>
+                                                        <textarea name="text" id="postEditor">{{old('text')}}</textarea>
+
+                                                    </div>
+
+                                                    <div class="mb-3 col-sm-6">
+                                                        <label class="small mb-1" for="cover">کاور پست</label>
+                                                        <input class="form-control" name="cover" type="file"/>
+                                                    </div>
+
+                                                    <div class="mt-4 mb-3 col-sm-6">
+                                                        <input class="form-check-input" id="checkAutoGroup" name="is_protect" type="checkbox">
+                                                        <label class="form-check-label" for="checkAutoGroup">محافظت از پـسـت با رمز عبور</label>
+                                                    </div>
+
+                                                </div>
                                                 <button class="btn btn-primary" type="submit">ثبت اطلاعات</button>
                                             </form>
                                             @if (session()->has('result') )
@@ -114,23 +145,44 @@
 
                                     <thead>
                                     <tr>
-                                        <th>نام</th>
+                                        <th>دسته بندی</th>
+                                        <th>موضوع</th>
+                                        <th>متن</th>
+                                        <th>کاور پست</th>
+                                        <th>پست محافظ شده</th>
+                                        <th>آپلود ضمیمه</th>
                                         <th>عملیات</th>
                                     </tr>
                                     </thead>
                                     <tfoot>
                                     <tr>
-                                        <th>نام</th>
+                                        <th>دسته بندی</th>
+                                        <th>موضوع</th>
+                                        <th>متن</th>
+                                        <th>کاور پست</th>
+                                        <th>پست محافظ شده</th>
+                                        <th>آپلود ضمیمه</th>
                                         <th>عملیات</th>
                                     </tr>
                                     </tfoot>
                                     <tbody>
-                                    @if ($result)
-                                        @foreach($result as $item)
+                                    @if ($result['blog'])
+                                        @foreach($result['blog'] as $item)
                                             <tr>
-                                                <td>{{ $item['name'] }}</td>
-                                                <td><a href="/admin/cat/delete/{{ $item['id'] }}"
-                                                       class="btn btn-sm btn-danger" type="button">حذف</a></td>
+                                                <td>{{ toCatName($item['cat_id']) }}</td>
+                                                <td>{{ $item['subject'] }}</td>
+                                                <td>{{ $item['text'] }}</td>
+                                                <td>{{ $item['cover'] }}</td>
+                                                <td>{{ $item['is_protect'] }}</td>
+                                                <td>
+                                                    <a href="/admin/blog/attach/{{ $item['id'] }}"
+                                                       class="btn  btn-sm bg-secondary text-white rounded-pill"><i
+                                                            class="fas fa-upload"></i></a>
+                                                </td>
+                                                <td>
+                                                    <a href="/admin/blog/delete/{{ $item['id'] }}"
+                                                       class="btn btn-sm btn-danger" type="button">حذف</a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @endif
@@ -156,6 +208,18 @@
 
 <script src="/admin/assets/js/simple-datatables%40latest.js"></script>
 <script src="/admin/assets/js/simple-datatables%40demo.js"></script>
+
+<script src="/admin/assets/js/easymde.min.js"></script>
+<script>
+    var easyMDE = new EasyMDE({
+        element: document.getElementById('postEditor'),
+        toolbar: ['bold', 'italic', 'heading', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', '|', 'preview', 'guide'],
+        initialValue: '',
+        direction: 'rtl',
+        status: [], // Optional usage
+
+    })
+</script>
 
 </body>
 </html>

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ارشیا - قالب شخصی کاملا واکنش گرا</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="Retrina Group" />
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="author" content="Retrina Group"/>
 
     <!--  FavIcon  -->
     <link rel="shortcut icon" href="assets/img/favicon.ico">
@@ -824,7 +824,7 @@
                                     </ul>
                                 </div>
                                 <div class="language-skill row">
-                                    <h4 class="col-6 text-start mb-0">آلمانی  <span> متوسط</span></h4>
+                                    <h4 class="col-6 text-start mb-0">آلمانی <span> متوسط</span></h4>
                                     <ul class="col-6 list-inline text-end mb-0">
                                         <li class="list-inline-item">
                                             <i class="fa fa-star"></i>
@@ -1213,7 +1213,7 @@
                                             <span class="text-muted">3</span>
                                         </li>
                                     </ul>
-                                    <h5 class="mb-3"><a class="text-dark" href="javascript:void(0)" target="_blank" data-bs-toggle="modal" data-bs-target="#blog-single">5 نکته در طراحی  UI/UX</a></h5>
+                                    <h5 class="mb-3"><a class="text-dark" href="javascript:void(0)" target="_blank" data-bs-toggle="modal" data-bs-target="#blog-single">5 نکته در طراحی UI/UX</a></h5>
                                     <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                                     <div class="blog-link">
                                         <a class="base-color" href="javascript:void(0)" target="_blank" data-bs-toggle="modal" data-bs-target="#blog-single">ادامه مطلب...</a>
@@ -1294,7 +1294,7 @@
                                             <span class="text-muted">10</span>
                                         </li>
                                     </ul>
-                                    <h5 class="mb-3"><a class="text-dark" href="javascript:void(0)" target="_blank" data-bs-toggle="modal" data-bs-target="#blog-single">5 نکته در طراحی  UI/UX</a></h5>
+                                    <h5 class="mb-3"><a class="text-dark" href="javascript:void(0)" target="_blank" data-bs-toggle="modal" data-bs-target="#blog-single">5 نکته در طراحی UI/UX</a></h5>
                                     <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
                                     <div class="blog-link">
                                         <a class="base-color" href="javascript:void(0)" target="_blank" data-bs-toggle="modal" data-bs-target="#blog-single">ادامه مطلب...</a>
@@ -1397,17 +1397,17 @@
                                 <div class="row">
                                     <div class="col-lg-6 form-item">
                                         <div class="input-group mb-3">
-                                            <input name="name" id="name" type="text" class="form-control" placeholder="نام*" required >
+                                            <input name="name" id="name" type="text" class="form-control" placeholder="نام*" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 form-item">
                                         <div class="input-group mb-3">
-                                            <input name="email" id="email" type="email" class="form-control" placeholder="ایمیل*" required >
+                                            <input name="email" id="email" type="email" class="form-control" placeholder="ایمیل*" required>
                                         </div>
                                     </div>
                                     <div class="col-12 form-item">
                                         <div class="input-group mb-3">
-                                            <input name="subject" id="subject" type="text" class="form-control" placeholder="موضوع*" required >
+                                            <input name="subject" id="subject" type="text" class="form-control" placeholder="موضوع*" required>
                                         </div>
                                     </div>
                                     <div class="col-12 form-item">
@@ -1419,7 +1419,7 @@
                                         <div class="button-border">
                                             <a href="javascript:void(0)" class="pill-button" id="submit-btn" onclick="sendEmail()">ارسال پیام</a>
                                         </div>
-                                        <div id="message" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000" >
+                                        <div id="message" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="4000">
                                             <div class="toast-body d-inline-block"></div>
                                             <button type="button" class="btn-close btn-close-white pt-4 pe-3" data-bs-dismiss="toast" aria-label="Close"></button>
                                         </div>

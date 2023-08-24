@@ -12,7 +12,7 @@ class DeleteAdminCatAction extends ParentAction
      * @param array $array
      * @return int
      */
-    public function run(array $array): int
+    public function run(array $array): int|string
     {
         return app(DeleteAdminCatTask::class)->run($array['id']);
     }

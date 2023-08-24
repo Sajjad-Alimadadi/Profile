@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SB Admin pro - قالب داشبورد مدیریت بوت‌استرپ - چند منظوره</title>
+    <title>پنل مدیریت</title>
     <link rel="stylesheet" href="/admin/assets/css/fonts.css">
     <link rel="stylesheet" href="/admin/assets/css/boxicons.css">
     <link rel="stylesheet" href="/admin/assets/css/style.css">
-    <script  defer="" src="/admin/assets/js/feather.min.js" ></script>
-    <script  defer="" src="/admin/assets/js/font-awesome.min.js" ></script>
+    <script defer="" src="/admin/assets/js/feather.min.js"></script>
+    <script defer="" src="/admin/assets/js/font-awesome.min.js"></script>
 </head>
 <body class="nav-fixed">
 <nav class="is-rtl topnav navbar navbar-expand shadow justify-content-between justify-content-sm-start navbar-light bg-white" id="snavAccordion">
@@ -21,12 +21,17 @@
         <nav class="snav shadow-right snav-light">
             <div class="snav-menu">
                 <div class="nav accordion" id="accordionSidenav">
-                    <div class="snav-menu-heading">پلاگین</div>
-                    <a class="nav-link pt-0" href="/admin/cat">
+
+                    <div class="snav-menu-heading">پنل مدیریت</div>
+                    <a class="nav-link" href="/admin/dashboard">
+                        <div class="nav-link-icon"><i class="bx bx-category-alt"></i></div>
+                        صفحه اصلی
+                    </a>
+                    <a class="nav-link" href="/admin/cat">
                         <div class="nav-link-icon"><i class="bx bx-category-alt"></i></div>
                         دسته بندی
                     </a>
-                    <a class="nav-link" href="/admin/post">
+                    <a class="nav-link" href="/admin/blog">
                         <div class="nav-link-icon"><i class="bx bx-category-alt"></i></div>
                         پست ها
                     </a>
@@ -34,6 +39,7 @@
                         <div class="nav-link-icon"><i class="bx bx-category-alt"></i></div>
                         خروج
                     </a>
+
                 </div>
             </div>
         </nav>
@@ -60,7 +66,7 @@
                         <div class="card mb-4">
                             <div class="card-header border-bottom"></div>
                             <div class="card-body">
-                                0
+                                مدیر محترم خوش آمدید
                             </div>
                         </div>
                     </div>
@@ -70,12 +76,12 @@
     </div>
 </div>
 
-<script src="/admin/assets/js/bootstrap.bundle.min.js" ></script>
+<script src="/admin/assets/js/bootstrap.bundle.min.js"></script>
 <script src="/admin/assets/js/scripts.js"></script>
 
-<script src="/admin/assets/js/chart/Chart.min.js" ></script>
-<script src="/admin/assets/js/chart/chart-area.js" ></script>
-<script src="/admin/assets/js/chart/chart-pie.js" ></script>
+<script src="/admin/assets/js/chart/Chart.min.js"></script>
+<script src="/admin/assets/js/chart/chart-area.js"></script>
+<script src="/admin/assets/js/chart/chart-pie.js"></script>
 
 <script src="/admin/assets/js/simple-datatables%40latest.js"></script>
 <script src="/admin/assets/js/simple-datatables%40demo.js"></script>

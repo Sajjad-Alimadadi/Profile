@@ -4,18 +4,15 @@ namespace App\Containers\ProfileSection\SiteContainer\Models;
 
 use App\Ship\Parents\Models\Model as ParentModel;
 
-class Blog extends ParentModel
+class Attach extends ParentModel
 {
     public $timestamps = false;
-    protected $table = 'blogs';
+    protected $table = 'attachs';
     protected $fillable = [
         'id',
-        'cat_id',
-        'subject',
-        'text',
-        'cover',
-        'is_protect',
+        'blog_id',
+        'path',
     ];
 
-    protected string $resourceKey = 'blogs';
+    protected string $resourceKey = 'attachs';
 }

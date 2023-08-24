@@ -2,13 +2,13 @@
 
 namespace App\Containers\ProfileSection\SiteContainer\Tasks;
 
-use App\Containers\ProfileSection\SiteContainer\Data\Repositories\AdminRepository;
+use App\Containers\ProfileSection\SiteContainer\Data\Repositories\BlogRepository;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 
-class AdminCatTask extends ParentTask
+class AdminBlogTask extends ParentTask
 {
     public function __construct(
-        protected AdminRepository $repository
+        protected BlogRepository $repository
     ) {
     }
 

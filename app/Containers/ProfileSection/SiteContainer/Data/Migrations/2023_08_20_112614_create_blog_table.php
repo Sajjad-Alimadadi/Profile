@@ -12,12 +12,11 @@ return new class extends Migration {
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cat_id')->constrained('cats')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('cat_id')->constrained('cats')->restrictOnDelete()->restrictOnUpdate();
             $table->string('subject');
             $table->string('text');
             $table->string('cover');
             $table->boolean('is_protect');
-            //$table->softDeletes();
         });
     }
 

@@ -4,14 +4,14 @@ namespace App\Containers\ProfileSection\SiteContainer\UI\WEB\Requests;
 
 use App\Ship\Parents\Requests\Request as ParentRequest;
 
-class CreateAdminCatRequest extends ParentRequest
+class AdminBlogRequest extends ParentRequest
 {
     /**
      * Define which Roles and/or Permissions has access to this request.
      */
     protected array $access = [
 //        'permissions' => '',
-//        'roles' => '',
+//        'roles'       => '',
     ];
 
     /**
@@ -35,8 +35,7 @@ class CreateAdminCatRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            '_token' => 'required',
-            'name'   => 'required|string',
+            // 'id' => 'required',
         ];
     }
 
@@ -46,13 +45,5 @@ class CreateAdminCatRequest extends ParentRequest
     public function authorize(): bool
     {
         return true;
-    }
-
-    protected function prepareForValidation(): void
-    {
-        $this->merge([
-            '_token' => $this->post('_token'),
-            'name'   => $this->post('name'),
-        ]);
     }
 }
