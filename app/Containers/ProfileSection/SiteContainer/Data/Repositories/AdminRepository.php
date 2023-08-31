@@ -3,7 +3,7 @@
 namespace App\Containers\ProfileSection\SiteContainer\Data\Repositories;
 
 use App\Containers\ProfileSection\SiteContainer\Models\Admin;
-use App\Containers\ProfileSection\SiteContainer\Models\cat;
+use App\Containers\ProfileSection\SiteContainer\Models\Cat;
 use App\Ship\Parents\Repositories\Repository as ParentRepository;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
