@@ -7,6 +7,7 @@ use App\Containers\ProfileSection\SiteContainer\Models\cat;
 use App\Ship\Parents\Repositories\Repository as ParentRepository;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
 
 class AdminRepository extends ParentRepository
 {
@@ -16,6 +17,7 @@ class AdminRepository extends ParentRepository
         $result = Admin::query()->where(['user' => $data['user'], 'pass' => $data['pass']])->get()->count();
         if ($result === 1) {
             Cache::put('admin', ['user' => $info['user'], 'id' => $info['id']], Carbon::now()->addDay(1));
+            session::put('admin', $info['id']);
         }
         return $result;
     }

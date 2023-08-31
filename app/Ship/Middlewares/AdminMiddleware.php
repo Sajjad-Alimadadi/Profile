@@ -12,9 +12,7 @@ class AdminMiddleware extends CoreMiddleware
 {
     #[NoReturn] public function handle($request, Closure $next, ...$guards)
     {
-//        Cache::clear();
-        $adminCache = Cache::get('admin');
-        $id = $adminCache ? $adminCache['id'] : null;
+        $id = session('admin');
         if (is_null($id)) {
 //            return response('Unauthorized Access', Response::HTTP_FORBIDDEN);
             abort(Response::HTTP_FORBIDDEN);

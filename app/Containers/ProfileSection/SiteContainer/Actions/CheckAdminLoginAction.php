@@ -15,7 +15,7 @@ class CheckAdminLoginAction extends ParentAction
     public function run(array $data): int|bool
     {
         unset($data['_token']);
-        $data['pass'] = md5($data['pass']);
+        $data['pass'] = sha1($data['pass']);
         return app(CheckAdminLoginTask::class)->run($data);
     }
 }
